@@ -121,7 +121,7 @@ async def sentiment_analysis(parametro: int):
             'Neutral': sentiment_counts.get(1, 0),
             'Positivo': sentiment_counts.get(2, 0)
         }
-        return f'La cantidad de resenias que hubo en el anio {parametro} es:  {resultado}'
+        return f'La cantidad de reseñas que hubo en el año {parametro} es:  {resultado}'
     else:
         resultado= f'No hay registros con ese año'
         return resultado
