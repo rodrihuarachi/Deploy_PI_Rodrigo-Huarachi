@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Individual-Rodrigo Huarachi</title>
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <a href="/static/html/index.html">Inicio</a>
+            <!-- Agrega otros enlaces aquí, si es necesario -->
+        </ul>
+    </nav>
+    
+    
+    <div id="#app" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <h1 style="font-size: 35px">Función Nro 4</h1>
+        <p>Ingrese el Género para obtener el TOP 5 de usuarios<br>
+         con mas horas de juego, ademas se mostrara su URL y el ID. </p>
+        <form id="funcion4-form">
+            <label for="genero">Género:</label>
+            <input type="text" id="genero" name="genero">
+            <button type="button" onclick="llamarFuncion4()">Ejecutar</button>
+        </form>
+        <p></p>
+        <div id="resultado4"></div>
+                
+    </div>
+            
+           
+    
+    <script>
+        async function llamarFuncion4() {
+            const genero = document.getElementById("genero").value;
+            const respuesta = await fetch(`/function4?genero=${genero}`);
+            const data = await respuesta.json();
+            // Procesa el resultado y crea una lista ordenada de usuarios
+            const usuarios = Object.entries(data).map(([ranking, info]) => `${ranking}: ${info}`).join('\n');
+
+            document.getElementById("resultado4").innerText = usuarios;
+        }
+    </script>
+</body> 
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Individual-Rodrigo Huarachi</title>
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <a href="/static/html/index.html">Inicio</a>
+            <!-- Agrega otros enlaces aquí, si es necesario -->
+        </ul>
+    </nav>
+    
+    
+    <div id="#app" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <h1 style="font-size: 35px">Función Nro 5</h1>
+        <p>Ingrese Desarrollador del juego para obtener el porcentaje de contenido FREE<br>
+         que se lanzo por año </p>
+        <form id="funcion5-form">
+            <label for="desarrollador">Desarrollador:</label>
+            <input type="text" id="desarrollador" name="desarrollador">
+            <button type="button" onclick="llamarFuncion5()">Ejecutar</button>
+        </form>
+        <p></p>
+        <div id="resultado5"></div>
+                
+    </div>
+            
+           
+    
+    <script>
+        async function llamarFuncion5() {
+            const desarrollador = document.getElementById("desarrollador").value;
+            const respuesta = await fetch(`/function5?desarrollador=${desarrollador}`);
+            const data = await respuesta.json();
+            
+            // Procesa el resultado y crea una lista de años y juegos asociados
+            let resultado = "";
+            if (Object.keys(data).length == 0) {
+                resultado = 'No hay registros con ese Desarrollador';
+            } else {
+                for (const [year, info] of Object.entries(data)) {
+                    resultado += `${year}: ${info}\n`;
+                }
+            }
+            
+            document.getElementById("resultado5").innerText = resultado;
+        }
+    </script>
+    
+</body>
+</html>

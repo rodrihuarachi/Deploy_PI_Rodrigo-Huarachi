@@ -1,0 +1,113 @@
+
+/* Style */
+body {
+  font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  
+  user-select: none; /* Evitar selección de texto accidental */
+  
+}
+
+/* Estilo del contenedor principal */
+#app {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  pointer-events: none; /* Deshabilitar interacción con el ratón */
+  user-select: none; /* Evitar selección de texto accidental */
+
+  
+}
+
+/* Estilo del encabezado */
+h1 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+/* Estilo del párrafo explicativo */
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Estilo del formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo del botón */
+button {
+  background-color: #5f6c7a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px; /* Agregado para separar del campo de entrada */
+}
+
+/* Estilo del botón al pasar el cursor por encima */
+button:hover {
+  background-color: #3d648d;
+}
+
+
+
+/* Estilo del campo de entrada de texto */
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px; /* Agregado para separar del botón */
+  margin-bottom: 10px; /* Agregado para separar del párrafo explicativo */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
+ /* Estilo de la barra de navegación */
+ .navbar {
+  background-color: transparent; /* Color de fondo de la barra de navegación */
+  color: #cbcbcb; /* Color del texto en la barra de navegación */
+  padding: 10px 20px; /* Espacio de relleno superior e inferior */
+  position: fixed; /* Fija la barra de navegación en la parte superior de la página */
+  top: 0; /* Posición en la parte superior */
+  left: 0; /* Posición en la parte izquierda */
+  width: 100%; /* Ancho del 100% de la ventana */
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  display: inline;
+  margin-right: 20px; /* Espacio entre elementos de navegación */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 20px;
+}
+
+/* Estilo para cambiar el color al pasar el cursor por encima */
+.navbar a:hover {
+  color: #686868;
+}
+

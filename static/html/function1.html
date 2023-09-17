@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Individual-Rodrigo Huarachi</title>
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <a href="/static/html/index.html">Inicio</a>
+            <!-- Agrega otros enlaces aquí, si es necesario -->
+        </ul>
+    </nav>
+    
+    
+    <div id="#app" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <h1 style="font-size: 35px">Función Nro 1 </h1>
+        <p>Ingrese el ID del ususario para obtener la cantidad de dinero gastado,<br>
+         el porcentaje de items recomendados y la cantidad de items adquiridos. </p>
+        <form id="funcion1-form">
+            <label for="parametro1">ID del Usuario:</label>
+            <input type="text" id="parametro1" name="parametro1">
+            <button type="button" onclick="llamarFuncion1()">Ejecutar</button>
+        </form>
+        <p></p>
+        <div id="resultado1"></div>
+                
+    </div>
+            
+           
+    
+    <script>
+        async function llamarFuncion1() {
+            const parametro = document.getElementById("parametro1").value;
+            const respuesta = await fetch(`/function1?parametro=${parametro}`);
+            const data = await respuesta.text();
+            document.getElementById("resultado1").innerText = data;
+        }
+    </script>
+</body>
+</html>

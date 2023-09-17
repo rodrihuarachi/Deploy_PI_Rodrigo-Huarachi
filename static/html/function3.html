@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Individual-Rodrigo Huarachi</title>
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <a href="/static/html/index.html">Inicio</a>
+            <!-- Agrega otros enlaces aquí, si es necesario -->
+        </ul>
+    </nav>
+    
+    
+    <div id="#app" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <h1 style="font-size: 35px">Función Nro 3</h1>
+        <p>Ingrese el Género del item para obtener el puesto en el ranking <br>
+            de los generos con el tiempo total juegado por todos los usuarios. </p>
+        <form id="funcion3-form">
+            <label for="genero">Género:</label>
+            <input type="text" id="genero" name="genero">
+            <button type="button" onclick="llamarFuncion3()">Ejecutar</button>
+        </form>
+        <p></p>
+        <div id="resultado3"></div>
+                
+    </div>
+            
+           
+    
+    <script>
+        async function llamarFuncion3() {
+            const genero = document.getElementById("genero").value;
+            const respuesta = await fetch(`/function3?genero=${genero}`);
+            const data = await respuesta.text();
+            document.getElementById("resultado3").innerText = data;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Individual-Rodrigo Huarachi</title>
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <a href="/static/html/index.html">Inicio</a>
+            <!-- Agrega otros enlaces aquí, si es necesario -->
+        </ul>
+    </nav>
+    
+    
+    <div id="#app" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <h1 style="font-size: 35px">Función Nro 6</h1>
+        <p>Ingrese el año de los posteos que quiere consultas para obtener la cantidad de reseñas<br>
+         categorizadas segun el análisis de sentimiento. </p>
+        <form id="funcion6-form">
+            <label for="parametro6">Año:</label>
+            <input type="text" id="parametro6" name="parametro6">
+            <button type="button" onclick="llamarFuncion6()">Ejecutar</button>
+        </form>
+        <p></p>
+        <div id="resultado6"></div>
+                
+    </div>
+            
+           
+    
+    <script>
+        async function llamarFuncion6() {
+            const parametro = document.getElementById("parametro6").value;
+            const respuesta = await fetch(`/function6?parametro=${parametro}`);
+            const data = await respuesta.json();
+            
+            document.getElementById("resultado6").innerText = data;
+        }
+    </script>
+    
+</body>
+</html>

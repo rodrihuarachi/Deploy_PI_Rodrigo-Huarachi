@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Individual-Rodrigo Huarachi</title>
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    
+</head>
+<body>
+    
+    <nav class="navbar">
+        <ul>
+            <a href="/static/html/index.html">Inicio</a>
+            <!-- Agrega otros enlaces aquí, si es necesario -->
+        </ul>
+    </nav>
+    
+    
+    <div id="#app" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <h1 style="font-size: 35px">Función Nro 2</h1>
+        <p>Ingrese las fechas para obtener la cantidad de usuarios que realizaron<br>
+         reviews y el porcentaje de items recomendados. </p>
+        <form id="funcion2-form">
+            <label for="desde">Desde:</label>
+            <input type="date" id="desde" name="desde">
+            <br>
+            <label for="hasta">Hasta:</label>
+            <input type="date" id="hasta" name="hasta">
+            <br>
+            <button type="button" onclick="llamarFuncion2()">Ejecutar</button>
+        </form>
+        <p></p>
+        <div id="resultado2"></div>           
+    </div>
+            
+           
+    
+    <script>
+        async function llamarFuncion2() {
+            const desde = document.getElementById("desde").value;
+            const hasta = document.getElementById("hasta").value;
+            const respuesta = await fetch(`/function2?desde=${desde}&hasta=${hasta}`);
+            const data = await respuesta.text();
+            document.getElementById("resultado2").innerText = data;
+        }
+    </script>
+</body>
+</html>
