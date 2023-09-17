@@ -1,2 +1,7 @@
+<<<<<<< HEAD
+runtime: python39
+entrypoint: gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+=======
 runtime: python311
 entrypoint: gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+>>>>>>> a83503790293b27f7384ab104e17f50d46d1d581
