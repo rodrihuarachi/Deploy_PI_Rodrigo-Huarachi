@@ -1,6 +1,6 @@
 
 /* Style */
-body {
+ body {
   font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #f2f2f2;
   margin: 0;
@@ -9,9 +9,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;  
-  user-select: none; /* Evitar selección de texto accidental */
-  
+  user-select: none;   
 }
+
+
 
 /* Estilo del contenedor principal */
 #app {
