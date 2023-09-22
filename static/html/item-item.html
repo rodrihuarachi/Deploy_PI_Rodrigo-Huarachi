@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Individual-Rodrigo Huarachi</title>
+    <link rel="stylesheet" href="/static/css/style.css"> 
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <a href="/static/html/index.html">Inicio</a>
+            <!-- Agrega otros enlaces aquí, si es necesario -->
+        </ul>
+    </nav>
+    
+    
+    <div id="#app" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <h1 style="font-size: 35px">Función ITEM-ITEMs</h1>
+        <p>Esta función toma un Item y recomienda 5 Items similares en base a la similitud en los TAGs.<br>
+        Para el cálculo de la similaridad de los Items se uso la SIMILITUD DEL COSENO </p>
+        <form id="funcion7-form">
+            <label for="parametro7">Item:</label>
+            <input type="text" id="parametro7" name="parametro7">
+            <button type="button" onclick="llamarFuncion7()">Ejecutar</button>
+        </form>
+        <p></p>
+        <div id="resultado7"></div>
+                
+    </div>
+
+    <script>        
+            async function llamarFuncion7() {
+            const parametro = document.getElementById("parametro7").value;
+            const respuesta = await fetch(`/function7?game=${parametro}`);
+            const data = await respuesta.text(); // Recibe la respuesta como texto
+            
+            const resultadoDiv = document.getElementById("resultado7");
+            resultadoDiv.innerText = data; // Muestra la cadena de texto directamente
+        }       
+    </script>
+    
+</body>
+</html>
+
