@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 import pandas as pd
+import numpy as np
+import operator
+
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="./static"), name="static")
@@ -16,7 +19,7 @@ endpoint_genre = pd.read_csv('./dataset/Endpoints/endpoint_genre.csv')
 endpoint_userforgenre = pd.read_csv('./dataset/Endpoints/endpoint_userforgenre.csv')
 endpoint_developer = pd.read_csv('./dataset/Endpoints/endpoint_developer.csv')
 endpoint_sentiment_analysis = pd.read_csv('./dataset/Endpoints/endpoint_sentiment_analysis.csv')
-
+endpoint_recomendacion_juego = pd.read_parquet('./dataset/Endpoints/Recommendation System/item_items.parquet')
 
 #---- Home ----#
 @app.get("/", response_class=HTMLResponse)
