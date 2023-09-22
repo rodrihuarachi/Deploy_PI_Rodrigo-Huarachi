@@ -125,6 +125,72 @@ async def sentiment_analysis(parametro: int):
     else:
         resultado= f'No hay registros con ese año'
         return resultado
+
+
+
+#---- Sistema de Recomendacion Item-Item ----#
+@app.get('/function7')
+async def game_recommendation(game: str):
+
+    if game in endpoint_recomendacion_juego['app_name'].unique(): 
     
+        cosine_sim = np.load('./dataset/similarity.npy')
+
+    
+        idx = endpoint_recomendacion_juego[endpoint_recomendacion_juego['app_name'] == game].index[0]
+        
+        rec_indices = cosine_sim[idx] 
+        rec_games = endpoint_recomendacion_juego.iloc[rec_indices]['app_name'] 
+
+        result = []
+        # result.append('TOP 5 juegos similares a {}:'.format(game))
+
+        for count, game in enumerate(rec_games[:5], start=1):
+            result.append('Nro. {}: {}'.format(count, game))
+
+
+        return ' || '.join(result)
+    else:
+        resultado= f'No hay registros con ese juego'
+        return resultado
+
+
+
+#---- Sistema de Recomendacion User-Item ----#
+# @app.get('/function8')
+# def game_recommendation_for_user(user):
+
+#     if user not in endpoint_recomendacion_usuario.columns:
+#         return 'No hay registros con ese usuario'
+
+#     sim_users = user_similarity.sort_values(by=user, ascending=False).index[1:11]
+
+#     users = user_similarity.iloc[sim_users]['user_id']
+
+#     most_common = {}
+    
+#     for i in users:
+#         max_score = endpoint_recomendacion_usuario.loc[:, i].max()
+#         best_games = endpoint_recomendacion_usuario[endpoint_recomendacion_usuario.loc[:, i] == max_score].index.tolist()
+        
+#         for game in best_games:
+#             most_common[game] = most_common.get(game, 0) + 1
+    
+#     sorted_list = sorted(most_common.items(), key=operator.itemgetter(1), reverse=True)
+    
+#     top_games = sorted_list[:5]
+    
+#     game_names = [] 
+    
+#     for game_id, _ in top_games:
+#         game_name = endpoint_recomendacion_usuario.loc[game_id, 'app_name']
+#         game_names.append(game_name)
+    
+
+#     result = []
+#     for count, game_name in enumerate(game_names, start=1):
+#         result.append('Nro. {}: {}'.format(count, game_name))
+
+#     return ' || '.join(result)
 
     
