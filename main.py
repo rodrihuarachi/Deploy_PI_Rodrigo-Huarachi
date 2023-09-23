@@ -137,7 +137,7 @@ async def game_recommendation(game: str):
 
     if game in endpoint_recomendacion_juego['app_name'].unique(): 
     
-        cosine_sim = np.load('./dataset/similarity.npy')
+        cosine_sim = np.load('./dataset/Recommendation System/similarity.npy')
 
     
         idx = endpoint_recomendacion_juego[endpoint_recomendacion_juego['app_name'] == game].index[0]
@@ -146,7 +146,7 @@ async def game_recommendation(game: str):
         rec_games = endpoint_recomendacion_juego.iloc[rec_indices]['app_name'] 
 
         result = []
-        # result.append('TOP 5 juegos similares a {}:'.format(game))
+        
 
         for count, game in enumerate(rec_games[:5], start=1):
             result.append('Nro. {}: {}'.format(count, game))
