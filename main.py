@@ -137,7 +137,7 @@ async def game_recommendation(game: str):
 
     if game in endpoint_recomendacion_juego['app_name'].unique(): 
     
-        cosine_sim = np.load('./dataset/Recommendation System/similarity.npy')
+        cosine_sim = np.load('./dataset/Endpoints/Recommendation System/similarity.npy')
 
     
         idx = endpoint_recomendacion_juego[endpoint_recomendacion_juego['app_name'] == game].index[0]
